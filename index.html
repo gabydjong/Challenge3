@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="nl"/>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title> SPACEX - API </title>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+</head>
+
+<body class="grid-container">
+
+	<header>
+		<section class="logospace">
+         <figure class="logo"> <img class="logo" src="images/space.png"  alt="Logo waarop SpaceX te lezen is, met achter de X ruimte achtige cirkels."/> </figure>
+        </section>
+
+
+        <form class="header-weer">
+		   <input type="text" id="cityName" id="city" class="zoekbalk" placeholder="Typ hier je plaatsnaam in..." />
+			<a href="#" id="button" onclick="getAPIdata()" >Geef weer!</a>
+        </form>
+	</header>
+
+
+    <section class="cards">
+      <div class="card-container">
+
+        <!-- Card 1 -->
+        <div class="card">
+          <div class="tekst-container">
+            <img src="images/temperatuur.svg" class="card-icons" alt="" />
+            <div class="title">
+              <h3> Temperatuur </h3>
+              <span class="eenheid">Graden</span>
+            </div>
+           </div>
+
+          <div data-placeholder="00.00 &#8451" contenteditable="false" class="placeholder antwoordEenheid" id="weerTemp" ></div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <div class="tekst-container">
+            <img src="images/persoon-04.svg" class="card-icons" id="tempicon" alt="" />
+            <div class="title">
+              <h3> Gevoels- <br/> temperatuur </h3>
+              <span class="eenheid">Graden</span>
+            </div>
+           </div>
+
+          <div data-placeholder="00.00 &#8451" contenteditable="false" class="placeholder antwoordEenheid" id="tempGevoel" ></div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <div class="tekst-container">
+            <img src="images/wind-02.svg" class="card-icons"  alt="" />
+            <div class="title">
+              <h3> Windsnelheid </h3>
+              <span class="eenheid">Meter per sec</span>
+            </div>
+           </div>
+
+          <div data-placeholder="00.00 m/s" contenteditable="false" class="placeholder antwoordEenheid" id="weerWind" ></div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+          <div class="tekst-container">
+            <img src="images/vocht-03.svg" class="card-icons"  alt="" />
+            <div class="title">
+              <h3> Vochtigheid </h3>
+              <span class="eenheid">in percetage</span>
+            </div>
+           </div>
+
+          <div data-placeholder="00.00 %" contenteditable="false" class="placeholder antwoordEenheid" id="vocht" ></div>
+        </div>
+
+    </section>
+
+</body>
+  
+    <!-- Javascript onderaan zodat pagina sneller geladen wordt-->
+    <script src="js/main.js"></script>
+</body>
+</html>
