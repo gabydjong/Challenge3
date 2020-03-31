@@ -9,7 +9,7 @@ body{
 }
 
 html{
-  background: url(background-01-01.svg) no-repeat center center fixed; 
+  background: url('../images/background-01-01.svg') no-repeat center center fixed; 
   background-size: cover;
 
 }
