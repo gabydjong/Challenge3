@@ -97,16 +97,16 @@ legend{
 
 @keyframes shake {
   0% {
-    margin-left: 290px;
+    margin-left: 75px;
     background-color:red;
   }
-  1% {margin-left: 287px}
-  2% {margin-left: 295px}
-  3% {margin-left: 282px}
-  4% {margin-left: 298px}
-  5% {margin-left: 285px}
-  6% {margin-left: 287px}
-  7% {margin-left: 290px}
+  1% {margin-left: 72px}
+  2% {margin-left: 80px}
+  3% {margin-left: 67px}
+  4% {margin-left: 83px}
+  5% {margin-left: 70px}
+  6% {margin-left: 72px}
+  7% {margin-left: 75px}
 }
 
 /*  ----------------- CARDS ------------------ */
@@ -202,6 +202,7 @@ header{
       ;
   }
   
+/* Button positie veranderd en zoekveld opmaak */
 .card-container{
   margin-top: 0px;
 }
@@ -216,6 +217,20 @@ header{
   width: 110px;
   margin-top: -30px;
 
+}
+
+@keyframes shake {
+  0% {
+    margin-left: 290px;
+    background-color:red;
+  }
+  1% {margin-left: 287px}
+  2% {margin-left: 295px}
+  3% {margin-left: 282px}
+  4% {margin-left: 298px}
+  5% {margin-left: 285px}
+  6% {margin-left: 287px}
+  7% {margin-left: 290px}
 }
 }
 
