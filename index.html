@@ -12,14 +12,17 @@
 
 	<header>
 		<section class="logospace">
-         <figure class="logo"> <img class="logo" src="images/space.png"  alt="Logo waarop SpaceX te lezen is, met achter de X ruimte achtige cirkels."/> </figure>
+         <figure class="logo"> <img class="logo" src="images/space-01.svg"  alt="Logo waarop SpaceX te lezen is."/> </figure>
         </section>
 
 
-        <form class="header-weer">
-		   <input type="text" id="cityName" id="city" class="zoekbalk" placeholder="Typ hier je plaatsnaam in..." />
-			<a href="#" id="button" onclick="getAPIdata()" >Geef weer!</a>
-        </form>
+      <form class="header-weer">
+        <fieldset>
+            <legend>Wij gaan weer terug naar huis!</legend>
+      		   <input type="text" id="cityName" id="city" class="zoekbalk" placeholder="Typ hier je plaatsnaam in waar je woont" />
+      			 <a href="#" id="button" onclick="getAPIdata()"  > Laat info zien!</a>
+        </fieldset>
+      </form>
 	</header>
 
 
@@ -77,12 +80,28 @@
 
           <div data-placeholder="00.00 %" contenteditable="false" class="placeholder antwoordEenheid" id="vocht" ></div>
         </div>
-
     </section>
+
+
+    <article class="googlemaps-container">
+      <h4> Google maps</h4>
+      <div class="googlemapsgebied">
+        <div id='map' class='map'></div>
+      </div>
+    </article>    
+
+    <article class="andereinfo">
+      <h4> Andere info</h4>
+      <div class="#">
+        <div id='#' class='#'></div>
+      </div>
+    </article>    
 
 </body>
   
     <!-- Javascript onderaan zodat pagina sneller geladen wordt-->
     <script src="js/main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlPbd0J1QtKFVVJ93sZ3iajyzqxMx8fJ0&callback=initMap"
+    type="text/javascript"></script>
 </body>
 </html>
