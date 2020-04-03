@@ -15,6 +15,8 @@ html{
 }
 
 
+
+
 /*  ----------------- logo SpaceX ------------------ */
 
 .logo{
@@ -23,7 +25,8 @@ html{
     margin-top: 10px;
 }
 .logospace{
-    padding: 10px;
+    margin-top: 50px;
+    padding-bottom: 10px;
 }
 
 figure{
@@ -131,7 +134,7 @@ legend{
     padding: 20px;
     width: 200px;
     background: #2C3F51;
-    border-radius: 8px;
+    border-radius: 9px;
     margin: 0px 10px 10px 10px;
 }
 
@@ -165,29 +168,58 @@ legend{
   color: lightgrey;
 }
 
-/*  ----------------- GOOGLE MAPS ------------------ */
+/*  ----------------- MAPS ------------------ */
 
-.googlemaps-container, .andereinfo{
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
+h4{
+  margin: 10px 0px 20px 0px;
+  text-align: center;
+}
+
+.googlemaps-container{
+  grid-area:googlemaps-container;
+  padding: 0px 20px 20px 50px;
+}
+
+
+.map-box {
+  border-radius: 9px;
+  height: 250px;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.marker {
+  display: block;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
 }
 
 /*  ----------------- CSS GRIDS ------------------ */
+
+
+header{
+	grid-area:header;
+}
+
+.andereinfo{
+  grid-area:andereinfo;
+}
 
 .grid-container {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: 
- 	 "header"
- 	 "cards"
+   "header"
+   "cards"
    "googlemaps-container"
    "andereinfo";
 
-}
-
-header{
-	grid-area:header;
 }
 
 /*  -----------------  1ste breekpunt------------------ */
@@ -198,8 +230,7 @@ header{
     grid-template-areas: 
       "header header"
       "cards cards"
-      "googlemaps-container andereinfo"
-      ;
+      "googlemaps-container andereinfo";
   }
   
 /* Button positie veranderd en zoekveld opmaak */

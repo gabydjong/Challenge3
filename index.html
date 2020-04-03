@@ -3,9 +3,13 @@
 <html lang="nl"/>
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <title> SPACEX - API </title>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
+
+<!-- mapbox api -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js" defer></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
 </head>
 
 <body class="grid-container">
@@ -82,13 +86,14 @@
         </div>
     </section>
 
-
-    <article class="googlemaps-container">
-      <h4> Google maps</h4>
-      <div class="googlemapsgebied">
-        <div id='map' class='map'></div>
-      </div>
-    </article>    
+    <section class="googlemaps-container">
+      <h4>Locaties</h4>
+      <div class="map-box">
+        <div class='map' id="map"></div>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
+        </div>
+    </section>
 
     <article class="andereinfo">
       <h4> Andere info</h4>
@@ -101,7 +106,5 @@
   
     <!-- Javascript onderaan zodat pagina sneller geladen wordt-->
     <script src="js/main.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlPbd0J1QtKFVVJ93sZ3iajyzqxMx8fJ0&callback=initMap"
-    type="text/javascript"></script>
 </body>
 </html>
