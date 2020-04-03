@@ -95,78 +95,128 @@ var geocoder = new MapboxGeocoder({
 	mapboxgl: mapboxgl
 });
 
-// Geschikte landingsplekken 
-var geojson = {
-	'type': 'FeatureCollection',
-	'features': [
-		{
-			'type': 'Feature',
-			'properties': {
-				'message': 'Foo',
-				'iconSize': [60, 60]
-			},
-			'geometry': {
-				'type': 'Point',
-				'coordinates': [-66.324462890625, -16.024695711685304]
-			}
-		},
-		{
-			'type': 'Feature',
-			'properties': {
-				'message': 'Bar',
-				'iconSize': [50, 50]
-			},
-			'geometry': {
-			'type': 'Point',
-				'coordinates': [-61.2158203125, -15.97189158092897]
-			}
-		},
-		{
-			'type': 'Feature',
-			'properties': {
-				'message': 'Baz',
-				'iconSize': [40, 40]
-			},
-			'geometry': {
-			'type': 'Point',
-				'coordinates': [-63.29223632812499, -18.28151823530889]
-			}
-		}
-	]
-};
-
-// add markers to map 
-geojson.features.forEach(function(marker) {
-	// create a DOM element for the marker
-	var el = document.createElement('div');
-	el.className = 'marker';
-	el.style.backgroundImage =
-		'url(https://placekitten.com/g/' +
-		marker.properties.iconSize.join('/') +
-		'/)';
-	el.style.width = marker.properties.iconSize[0] + 'px';
-	el.style.height = marker.properties.iconSize[1] + 'px';
-	 
-	el.addEventListener('click', function() {
-		window.alert(marker.properties.message);
-});
- 
-// add marker to map
-new mapboxgl.Marker(el)
-.setLngLat(marker.geometry.coordinates)
-.addTo(map);
-});
-
 // zoekbalk
 map.addControl(geocoder);
 
-// Navigatie buttons
+// Navigatie
 map.addControl(new mapboxgl.NavigationControl());
 
 // optie fullscreen
 map.addControl(new mapboxgl.FullscreenControl());
 
+// Add geolocate control to the map.
+map.addControl(
+	new mapboxgl.GeolocateControl({
+		positionOptions: {
+			enableHighAccuracy: true
+		},
+		trackUserLocation: true
+	})
+);
+
+// ----------------------------   Weer in map    ------------------------------
+
+var cities = [
+  {
+    name: 'Amsterdam',
+    coordinates: [4.895168, 52.370216]
+  },
+  {
+    name: 'Rotterdam',
+    coordinates: [4.47917, 51.9225]
+  },
+  {
+    name: 'Nijmegen',
+    coordinates: [5.85278, 51.8425]
+  },
+  {
+    name: 'Maastricht',
+    coordinates: [5.68889, 50.84833]
+  },
+  {
+    name: 'Groningen',
+    coordinates: [6.56667, 53.21917]
+  },
+  {
+    name: 'Enschede',
+    coordinates: [6.89583, 52.21833]
+  },
+  {
+    name: 'Middelburg',
+    coordinates: [3.610998, 51.498795]
+  },
+  {
+    name: 'New York',
+    coordinates: [-74.005974, 40.712776]
+  },
+  {
+    name: 'Moskou',
+    coordinates: [37.617680, 55.755871]
+  },
+];
+
+var openWeatherMapUrl = 'https://api.openweathermap.org/data/2.5/weather';
+var openWeatherMapUrlApiKey = 'e096950819a2dd2441ca3cec5396aca4';
+
+map.on('load', function () {
+  cities.forEach(function(city) {
+    // Usually you do not want to call an api multiple times, but in this case we have to
+    // because the openWeatherMap API does not allow multiple lat lon coords in one request.
+    var request = openWeatherMapUrl + '?' + 'appid=' + openWeatherMapUrlApiKey + '&lon=' + city.coordinates[0] + '&lat=' + city.coordinates[1];
+
+    // Get current weather based on cities' coordinates
+    fetch(request)
+      .then(function(response) {
+        if(!response.ok) throw Error(response.statusText);
+        return response.json();
+      })
+      .then(function(response) {
+        // Then plot the weather response + icon on MapBox
+        plotImageOnMap(response.weather[0].icon, city)
+      })
+      .catch(function (error) {
+        console.log('ERROR:', error);
+      });
+  });
+});
+
+
+
+// Iconen van weathermap
+function plotImageOnMap(icon, city) {
+  map.loadImage(
+    'http://openweathermap.org/img/w/' + icon + '.png',
+    function (error, image) {
+      if (error) throw error;
+      map.addImage("weatherIcon_" + city.name, image);
+      map.addSource("point_" + city.name, {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: [{
+            type: "Feature",
+            geometry: {
+              type: "Point",
+              coordinates: city.coordinates
+            }
+          }]
+        }
+      });
+      map.addLayer({
+        id: "points_" + city.name,
+        type: "symbol",
+        source: "point_" + city.name,
+        layout: {
+          "icon-image": "weatherIcon_" + city.name,
+          "icon-size": 1
+        }
+      });
+    }
+  );
 }
+
+}
+
 
 
 window.onload = function() {
