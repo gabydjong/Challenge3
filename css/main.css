@@ -224,7 +224,7 @@ header{
 
 /*  -----------------  1ste breekpunt------------------ */
 
-@media (min-width: 440px) {
+@media (min-width: 700px) {
   .grid-container {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 

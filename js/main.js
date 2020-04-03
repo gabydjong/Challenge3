@@ -49,10 +49,10 @@ function onAPISucces(response) {
 	var weerWind = document.getElementById('weerWind');
 	weerWind.innerHTML = (windSpeed + " m/s");
 
-	// Vochtigheid
-	var humidity = response.main.humidity;
-	var vochtigheid = document.getElementById('vocht');
-	vochtigheid.innerHTML = (humidity + "%");
+	//Zicht
+	var visibility = response.visibility;
+	var zichtbaarheid = document.getElementById('zicht');
+	zichtbaarheid.innerHTML = (visibility + " m");
 
 }
 
@@ -84,7 +84,7 @@ var geocoder = new MapboxGeocoder({
 		// These options control the flight curve, making it move
 		// slowly and zoom out almost completely before starting
 		// to pan.
-		speed: 0.4, // make the flying slow
+		speed: 0.6, // make the flying slow
 		curve: 1, // change the speed at which it zooms out
 		// This can be any easing function: it takes a number between
 		// 0 and 1 and returns another number between 0 and 1.
