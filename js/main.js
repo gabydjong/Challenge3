@@ -224,7 +224,7 @@ function unsplashAPI() {
 	
 const numItemsToGenerate = 1; //how many gallery items you want on the screen
 const numImagesAvailable = 242; //how many total images are in the collection you are pulling from
-const imageWidth = 290; //your desired image width in pixels
+const imageWidth = 350; //your desired image width in pixels
 const imageHeight = 290; //desired image height in pixels
 const collectionID = 1364150; //the collection ID from the original url
 const $galleryContainer = document.querySelector('.gallery-container');
