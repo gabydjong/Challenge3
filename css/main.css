@@ -218,9 +218,11 @@ h4{
 .andereinfo{
   grid-area:andereinfo;
 }
+
 .titel{
   margin-top: 0px;
 }
+
 img {
   width: 100%;
   height: auto;
@@ -287,6 +289,11 @@ header{
   5% {margin-left: 285px}
   6% {margin-left: 287px}
   7% {margin-left: 290px}
+}
+
+/* Titel staat niet meer onder mapbox */
+.titel{
+  margin-top: 20px;
 }
 
 }
