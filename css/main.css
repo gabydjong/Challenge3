@@ -211,12 +211,14 @@ h4{
 }
 
 .gallery-item{
-    border-radius: 9px;
-    margin: 0px 20px 0px 20px;
+  margin: 0px 20px 0px 20px;
 }
 
+.gallery-image{
+   border-radius: 9px;
+}
 .andereinfo{
-  grid-area:andereinfo;
+   grid-area:andereinfo;
 }
 
 .titel{
@@ -298,8 +300,58 @@ header{
 
 }
 
-@media (min-width:900px) {
+@media (min-width: 900px){
+/* Gallery foto mag niet groter worden dan onderstaande waarden op dit moment. */
+.gallery-image{
+  height: 300px;
+  width: 300px;
+}
+}
 
+@media (min-width:1500px) {
+/* Elementen worden groter. */
 
+.logo{
+  height: 40px;
+}
+
+legend{
+  font-size: 20px;
+}
+
+.zoekbalk{
+  font-size: 15px;
+}
+
+#button{
+  font-size: 15px;
+  width: 120px;
+  margin-left: 300px;
+}
+/* Cards*/
+
+.card{
+  width: 240px;
+  font-size: 20px;
+}
+
+h4{
+  font-size: 22px;
+}
+
+/* map en foto */
+.grid-container {
+  grid-template-columns: 1.5fr 1fr;
+
+  }
+
+.map-box{
+  height: 400px;
+}
+
+.gallery-image{
+  height: 400px;
+  width: 500px;
+}
 }
 

@@ -56,7 +56,7 @@ function onAPISucces(response) {
 
 }
 
-
+/* Laat animatie tonen op de button als er een error plaatsvind */
 function onAPIError(error) {
 	console.error('Fetch request failed', error);
 	 document.getElementById('button').classList.add('btn-animation'); 
@@ -69,8 +69,8 @@ function showMapBox(){
 	var map = new mapboxgl.Map({
 		container: 'map', // container id
 		style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-		center: [50, 50], // starting position [lng, lat]
-		zoom: 1 // starting zoom
+		center: [5, 52], // starting position [lng, lat]
+		zoom: 5 // starting zoom
 	});
 
 // Zoekfunctie
@@ -144,6 +144,22 @@ var cities = [
   {
     name: 'Middelburg',
     coordinates: [3.610998, 51.498795]
+  },
+  {
+    name: 'Eschwege',
+    coordinates: [10.052540, 51.188301]
+  },
+  {
+    name: 'Norwich',
+    coordinates: [1.297355, 52.630886]
+  },
+  {
+    name: 'Lille',
+    coordinates: [3.057256, 50.629250]
+  },
+  {
+    name: 'London',
+    coordinates: [-0.127758, 51.507351]
   },
   {
     name: 'New York',
@@ -224,9 +240,9 @@ function unsplashAPI() {
 	
 const numItemsToGenerate = 1; //how many gallery items you want on the screen
 const numImagesAvailable = 242; //how many total images are in the collection you are pulling from
-const imageWidth = 350; //your desired image width in pixels
-const imageHeight = 290; //desired image height in pixels
-const collectionID = 1364150; //the collection ID from the original url
+const imageWidth = 400; //your desired image width in pixels
+const imageHeight = 400; //desired image height in pixels
+const collectionID = 9845613; //the collection ID from the original url
 const $galleryContainer = document.querySelector('.gallery-container');
 
 function renderGalleryItem(randomNumber){
@@ -240,6 +256,8 @@ function renderGalleryItem(randomNumber){
       $galleryContainer.appendChild(galleryItem);
     })
 }
+
+/* Zorgt dat hij random foto pakt */
 
 for(let i=0;i<numItemsToGenerate;i++){
   let randomImageIndex = Math.floor(Math.random() * numImagesAvailable);
