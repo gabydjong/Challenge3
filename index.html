@@ -10,6 +10,8 @@
 <!-- mapbox api -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js" defer></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.js"></script>
+    <link href="https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.css" rel="stylesheet"/>
 
 <!-- Unsplash api  -->
 
@@ -26,7 +28,7 @@
       <form class="header-weer">
         <fieldset>
             <legend>Wij gaan weer terug naar huis!</legend>
-      		   <input type="text" id="cityName" id="city" class="zoekbalk" placeholder="Typ hier je plaatsnaam in waar je woont" />
+      		   <input type="text" oninput='geocodeThis()' id="cityName" id="city" class="zoekbalk" placeholder="Typ hier je plaatsnaam in waar je woont" />
       			 <a href="#" id="button" onclick="getAPIdata()"  > Laat info zien!</a>
         </fieldset>
       </form>
@@ -109,6 +111,7 @@
   
     <!-- Javascript onderaan zodat pagina sneller geladen wordt-->
     <script src="js/main.js"></script>
+    <script src="js/main2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>

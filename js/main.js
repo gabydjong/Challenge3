@@ -62,8 +62,8 @@ function onAPIError(error) {
 	 document.getElementById('button').classList.add('btn-animation'); 
 }
 
-/* MAPS */
-//Dit is het code voor de MAP
+/* MAPBOX */
+//Dit is de code voor de MAP
 function showMapBox(){
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZ2FieTkiLCJhIjoiY2s4azUwZXJvMDIwMDNtb296ejRzdmtxciJ9.ai4IrKbKLtQWdU_IGAd-Kw';
 	var map = new mapboxgl.Map({
@@ -73,7 +73,7 @@ function showMapBox(){
 		zoom: 5 // starting zoom
 	});
 
-// Zoekfunctie
+
 var geocoder = new MapboxGeocoder({
 	accessToken: mapboxgl.accessToken,
 	marker: {
@@ -95,6 +95,7 @@ var geocoder = new MapboxGeocoder({
 	mapboxgl: mapboxgl
 });
 
+
 // zoekbalk
 map.addControl(geocoder);
 
@@ -114,7 +115,7 @@ map.addControl(
 	})
 );
 
-// ----------------------------   Weer in map    ------------------------------
+// ----------------------------   Weer in de mapBox   ------------------------------
 
 var cities = [
   {
@@ -233,7 +234,7 @@ function plotImageOnMap(icon, city) {
 
 }
 
-// UNSPLASH API
+// UNSPLASH API Random foto van landingsplek
 
 function unsplashAPI() {
 
