@@ -1,15 +1,15 @@
 function getAPIdata() {
 
-	// construct request
+	// Aanvraag
 	var zoekbalk = document.getElementById('cityName').value;
 	var url = 'https://api.openweathermap.org/data/2.5/weather';
 	var apiKey ='e096950819a2dd2441ca3cec5396aca4';
 	var cityName = document.getElementById('cityName').value;
 
-	// construct request
+	// Aanvraag request. 
 	var request = url + '?' + 'appid=' + apiKey + '&' + 'q=' + cityName;
 
-	// get current weather
+	// Krijg recente weer.
 	fetch(request)
 
 	// parse response to JSON format
@@ -18,7 +18,7 @@ function getAPIdata() {
 		return response.json();
 	})
 
-// render weather per day
+// render weer per dag. 
 	.then(function(response) {
 		// render weatherCondition
 		onAPISucces(response);	
@@ -31,10 +31,10 @@ function getAPIdata() {
 }
 
 function onAPISucces(response) {
-	// get type of weather in string format
+	// Krijg het type weer in string formaat. 
 	var type = response.weather[0].description;
 
-	// get temperature in Celcius
+	// Krijg temperatuur in celsius. 
 	var degC = Math.floor(response.main.temp - 273.15);
 	var weerTemp = document.getElementById('weerTemp');
 	weerTemp.innerHTML = (degC + "&#8451");
@@ -73,7 +73,7 @@ function showMapBox(){
 		zoom: 5 // starting zoom
 	});
 
-
+// Dit is de code voor de marker Geocoder. 
 var geocoder = new MapboxGeocoder({
 	accessToken: mapboxgl.accessToken,
 	marker: {
@@ -81,20 +81,48 @@ var geocoder = new MapboxGeocoder({
 	},
 	flyTo: {
 		bearing: 0,
-		// These options control the flight curve, making it move
-		// slowly and zoom out almost completely before starting
-		// to pan.
-		speed: 0.6, // make the flying slow
-		curve: 1, // change the speed at which it zooms out
-		// This can be any easing function: it takes a number between
-		// 0 and 1 and returns another number between 0 and 1.
-		easing: function(t) {
-			return t;
-		}
+		//  Deze opties controleren de flight curve, het zorgt ervoor dat er langzaam naar de 
+    // locatie wordt gegaan. 
+		speed: 0.6, // Zorgt hoe snel naar de marker gevlogen wordt. 
+		curve: 1, // Verander de snelheid van het uitzoemen. 
 	},
 	mapboxgl: mapboxgl
 });
 
+/* EVENTUELE LANDINGSPLEKKEN */
+
+var landingsplek = [9.732010, 52.375893];
+var alternatief = [-1.158109, 52.954784];
+
+// Maakt de popup met tekst. 
+var popup = new mapboxgl.Popup({ offset: 25 }).setText(
+'Hier kunt u veilig landen!'
+);
+
+// Maakt de popup met tekst voor de alternatieve landingsplek. 
+var popuptwee = new mapboxgl.Popup({ offset: 25 }).setText(
+'Als u een alternatieve landingsplek wilt kunt u hier ook veilig landen!'
+);
+
+// Maakt DOM element voor de eerste landingsplek marker aan. 
+var el = document.createElement('div');
+el.id = 'marker';
+
+// Maakt DOM element voor de alternatieve landingsplek marker aan. 
+var al = document.createElement('div');
+al.id = 'marker';
+
+// Maakt de marker voor de eerste landingsplek
+new mapboxgl.Marker(el)
+.setLngLat(landingsplek)
+.setPopup(popup) // Zorgt voor een popup op de marker
+.addTo(map);
+
+// Maakt de marker voor de alternatieve landingsplek.
+new mapboxgl.Marker(al)
+.setLngLat(alternatief)
+.setPopup(popuptwee) // Zorgt voor een popup op de marker
+.addTo(map);
 
 // zoekbalk
 map.addControl(geocoder);
@@ -105,7 +133,7 @@ map.addControl(new mapboxgl.NavigationControl());
 // optie fullscreen
 map.addControl(new mapboxgl.FullscreenControl());
 
-// Add geolocate control to the map.
+// Voegt geolocate control toe aan de map.
 map.addControl(
 	new mapboxgl.GeolocateControl({
 		positionOptions: {
@@ -234,18 +262,18 @@ function plotImageOnMap(icon, city) {
 
 }
 
-// UNSPLASH API Random foto van landingsplek
+// UNSPLASH API Random foto van eventuele landingsplek
 
 function unsplashAPI() {
-
 	
-const numItemsToGenerate = 1; //how many gallery items you want on the screen
-const numImagesAvailable = 242; //how many total images are in the collection you are pulling from
-const imageWidth = 400; //your desired image width in pixels
-const imageHeight = 400; //desired image height in pixels
-const collectionID = 9845613; //the collection ID from the original url
+const numItemsToGenerate = 1; // Hoeveel gallery items je op het scherm wilt.
+const numImagesAvailable = 10; // Hoeveel random foto's in je collectie zit. 
+const imageWidth = 400; //Image width in pixels.
+const imageHeight = 400; //Image height in pixels.
+const collectionID = 9845613; //Collectie ID 
 const $galleryContainer = document.querySelector('.gallery-container');
 
+// Functie random nummer
 function renderGalleryItem(randomNumber){
   fetch(`https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/?sig=${randomNumber}`) 
     .then((response)=> {    
@@ -259,7 +287,6 @@ function renderGalleryItem(randomNumber){
 }
 
 /* Zorgt dat hij random foto pakt */
-
 for(let i=0;i<numItemsToGenerate;i++){
   let randomImageIndex = Math.floor(Math.random() * numImagesAvailable);
   renderGalleryItem(randomImageIndex);

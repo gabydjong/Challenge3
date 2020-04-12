@@ -14,9 +14,6 @@ html{
 
 }
 
-
-
-
 /*  ----------------- logo SpaceX ------------------ */
 
 .logo{
@@ -191,15 +188,25 @@ h4{
   border-radius: 8px;
 }
 
-.marker {
-  display: block;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  padding: 0;
+/* marker landingsplek*/
+
+#marker {
+background-image: url('../images/landingplek-01.png');
+background-size: cover;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+}
+ 
+.mapboxgl-popup {
+max-width: 200px;
 }
 
-/* UNSPLASH API*/
+
+
+
+/*--- UNSPLASH API ----*/
 
 .gallery-container {
   width: 100%;
@@ -230,14 +237,13 @@ img {
   height: auto;
 }
 
+
 /*  ----------------- CSS GRIDS ------------------ */
 
 
 header{
 	grid-area:header;
 }
-
-
 
 .grid-container {
   margin: 0px 30px 30px 30px;
@@ -328,22 +334,23 @@ legend{
   width: 120px;
   margin-left: 300px;
 }
-/* Cards*/
+
+/* Cards worden groter */
 
 .card{
   width: 240px;
   font-size: 20px;
 }
 
+/* Titel wordt groter */
 h4{
   font-size: 22px;
 }
 
-/* map en foto */
+/* map en foto veranderen kwa positie/grootte */
 .grid-container {
   grid-template-columns: 1.5fr 1fr;
-
-  }
+}
 
 .map-box{
   height: 400px;
