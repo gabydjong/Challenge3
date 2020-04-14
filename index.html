@@ -10,8 +10,10 @@
 <!-- mapbox api -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js" defer></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
-<script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
-<link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
 
 <!-- Unsplash api  -->
 
@@ -29,7 +31,7 @@
         <fieldset>
             <legend>Wij gaan weer terug naar huis!</legend>
       		   <input type="text" id="cityName" id="city" class="zoekbalk" placeholder="Typ hier je plaatsnaam in waar je woont" />
-      			 <a href="#" id="button" onclick="getAPIdata()"  > Laat info zien!</a>
+      			 <a href="#" id="button" onclick="getAPIdata()"> Laat info zien!</a>
         </fieldset>
       </form>
 	</header>
@@ -47,7 +49,6 @@
               <span class="eenheid">Graden</span>
             </div>
            </div>
-
           <div data-placeholder="00.00 &#8451" contenteditable="false" class="placeholder antwoordEenheid" id="weerTemp" ></div>
         </div>
 
@@ -60,7 +61,6 @@
               <span class="eenheid">Graden</span>
             </div>
            </div>
-
           <div data-placeholder="00.00 &#8451" contenteditable="false" class="placeholder antwoordEenheid" id="tempGevoel" ></div>
         </div>
 
@@ -73,7 +73,6 @@
               <span class="eenheid">Meter per sec</span>
             </div>
            </div>
-
           <div data-placeholder="00.00 m/s" contenteditable="false" class="placeholder antwoordEenheid" id="weerWind" ></div>
         </div>
 
@@ -86,7 +85,6 @@
               <span class="eenheid">in meters</span>
             </div>
            </div>
-
           <div data-placeholder="00.00 %" contenteditable="false" class="placeholder antwoordEenheid" id="zicht" ></div>
         </div>
     </section>
@@ -95,16 +93,12 @@
       <h4>Locaties</h4>
       <div class="map-box">
         <div class='map' id="map"></div>
-        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
-        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
-        </div>
+      </div>
     </section>
 
-    <section class="andereinfo">
+    <section class="landingsfoto">
       <h4 class="titel">Landingsplek preview</h4>
-      <div class="gallery-container">
-  
-      </div>
+      <div class="gallery-container"></div>
     </section>
 
 </body>

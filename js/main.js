@@ -91,8 +91,10 @@ var geocoder = new MapboxGeocoder({
 
 /* EVENTUELE LANDINGSPLEKKEN */
 
-var landingsplek = [9.732010, 52.375893];
+var landingsplek = [4.750680, 52.632359];
 var alternatief = [-1.158109, 52.954784];
+var alternatiefTwee = [9.732010, 52.375893];
+
 
 // Maakt de popup met tekst. 
 var popup = new mapboxgl.Popup({ offset: 25 }).setText(
@@ -100,7 +102,12 @@ var popup = new mapboxgl.Popup({ offset: 25 }).setText(
 );
 
 // Maakt de popup met tekst voor de alternatieve landingsplek. 
-var popuptwee = new mapboxgl.Popup({ offset: 25 }).setText(
+var popupTwee = new mapboxgl.Popup({ offset: 25 }).setText(
+'Als u een alternatieve landingsplek wilt kunt u hier ook veilig landen!'
+);
+
+// Maakt de popup met tekst voor tweede alternatieve landingsplek. 
+var popupDrie = new mapboxgl.Popup({ offset: 25 }).setText(
 'Als u een alternatieve landingsplek wilt kunt u hier ook veilig landen!'
 );
 
@@ -112,6 +119,10 @@ el.id = 'marker';
 var al = document.createElement('div');
 al.id = 'marker';
 
+// Maakt DOM element voor tweede alternatieve landingsplek marker aan. 
+var altTwee = document.createElement('div');
+altTwee.id = 'marker';
+
 // Maakt de marker voor de eerste landingsplek
 new mapboxgl.Marker(el)
 .setLngLat(landingsplek)
@@ -121,16 +132,23 @@ new mapboxgl.Marker(el)
 // Maakt de marker voor de alternatieve landingsplek.
 new mapboxgl.Marker(al)
 .setLngLat(alternatief)
-.setPopup(popuptwee) // Zorgt voor een popup op de marker
+.setPopup(popupTwee) // Zorgt voor een popup op de marker
 .addTo(map);
 
-// zoekbalk
+// Maakt de marker voor tweede alternatieve landingsplek.
+new mapboxgl.Marker(altTwee)
+.setLngLat(alternatiefTwee)
+.setPopup(popupDrie) // Zorgt voor een popup op de marker
+.addTo(map);
+
+
+// Zoekbalk
 map.addControl(geocoder);
 
-// Navigatie
+// Navigatie knoppen
 map.addControl(new mapboxgl.NavigationControl());
 
-// optie fullscreen
+// Optie fullscreen knop
 map.addControl(new mapboxgl.FullscreenControl());
 
 // Voegt geolocate control toe aan de map.
@@ -145,6 +163,7 @@ map.addControl(
 
 // ----------------------------   Weer in de mapBox   ------------------------------
 
+// Coordinates van alle steden waarop een weericoon te vinden moet zijn. 
 var cities = [
   {
     name: 'Amsterdam',
@@ -200,6 +219,7 @@ var cities = [
   },
 ];
 
+// Haalt de url en de apikey op. 
 var openWeatherMapUrl = 'https://api.openweathermap.org/data/2.5/weather';
 var openWeatherMapUrlApiKey = 'e096950819a2dd2441ca3cec5396aca4';
 
@@ -293,7 +313,7 @@ for(let i=0;i<numItemsToGenerate;i++){
 }
 }
 
-
+// Zorgt dat de functies worden getoont als scherm geladen is. 
 window.onload = function() {
   showMapBox();
   unsplashAPI();

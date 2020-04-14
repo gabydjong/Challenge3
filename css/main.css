@@ -177,14 +177,16 @@ h4{
 }
 
 .map-box {
+  display: flex;
+  justify-content: center;
   border-radius: 9px;
   height: 300px;
-  margin: 0px 20px 20px 20px
+  margin: 0px 0px 20px 0px;
 }
 
 #map {
   height: 100%;
-  width: 100%;
+  width: 90%;
   border-radius: 8px;
 }
 
@@ -224,8 +226,8 @@ max-width: 200px;
 .gallery-image{
    border-radius: 9px;
 }
-.andereinfo{
-   grid-area:andereinfo;
+.landingsfoto{
+   grid-area:landingsfoto;
 }
 
 .titel{
@@ -253,7 +255,7 @@ header{
    "header"
    "cards"
    "googlemaps-container"
-   "andereinfo";
+   "landingsfoto";
 
 }
 
@@ -265,7 +267,7 @@ header{
     grid-template-areas: 
       "header header"
       "cards cards"
-      "googlemaps-container andereinfo";
+      "googlemaps-container landingsfoto";
   }
   
 /* Button positie veranderd en zoekveld opmaak */
@@ -353,12 +355,13 @@ h4{
 }
 
 .map-box{
-  height: 400px;
+  height: 350px;
+  width: 100%;
 }
 
 .gallery-image{
-  height: 400px;
-  width: 500px;
+  height: 350px;
+  width: 350px;
 }
 }
 
