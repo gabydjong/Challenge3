@@ -191,7 +191,7 @@ legend{
 /*  ----------------- MAPS ------------------ */
 
 h4{
-  margin: 20px 0px 20px 0px;
+  margin: 10px 0px 20px 0px;
   text-align: center;
 }
 
@@ -262,6 +262,16 @@ img {
   height: auto;
 }
 
+/*  ----------------- FOOTER ------------------ */
+
+footer{
+    grid-area:footer;
+}
+
+footer p{
+    text-align: center;
+    margin: 20px;
+ }
 
 /*  ----------------- CSS GRIDS ------------------ */
 
@@ -271,14 +281,15 @@ header{
 }
 
 .grid-container {
-  margin: 0px 30px 10px 30px;
+  margin: 0px 30px 15px 30px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: 
    "header"
    "cards"
    "googlemaps-container"
-   "landingsfoto";
+   "landingsfoto"
+   "footer";
 
 }
 
@@ -290,7 +301,8 @@ header{
     grid-template-areas: 
       "header header"
       "cards cards"
-      "googlemaps-container landingsfoto";
+      "googlemaps-container landingsfoto"
+      "footer footer";
   }
   
 /* Button positie veranderd en zoekveld opmaak */
@@ -328,8 +340,11 @@ header{
   7% {margin-left: 290px}
 }
 
-/* Titel staat niet meer onder mapbox */
-.titel{
+/* Titel staat niet meer onder mapbox, ik spreek twee keer de titel h4 aan, omdat als 
+ik voor de landingsplek geen aparte margin aanmaak, hij anders gepositioneert staat ten
+opzichte van de titel locaties.*/
+
+h4, .titel{
   margin-top: 20px;
 }
 
