@@ -1,4 +1,6 @@
-# Challenge3
+# Challenge3 - Gaby de Jong - 17126614
+
+Link website: https://gabydjong.github.io/Challenge3/
 
 Na een tijd op Mars te hebben gewoond, zijn 32 mensen op weg terug naar de aarde. Om de perfecte landingsplek te vinden heeft Elon Musk hulp nodig. Door middel van een live dashboard zou Elon Musk de perfecte landingsplek moeten kunnen vinden. Om dit doel te bereiken heb ik API’s uit drie verschillende bronnen gebruikt. De eerste API is de Openweathermap. Door middel van deze API kan informatie over het weer makkelijk en snel opgevraagd worden, op basis van de ingevoerde locatie. De ingevoerde locatie moet ingevuld worden in een zoekbalk, als deze zoekbalk fout wordt ingevuld dan verschijnt er een animatie en wordt de button rood. 
 
