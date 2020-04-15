@@ -83,9 +83,9 @@ function showMapBox(){
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZ2FieTkiLCJhIjoiY2s4azUwZXJvMDIwMDNtb296ejRzdmtxciJ9.ai4IrKbKLtQWdU_IGAd-Kw';
 	var map = new mapboxgl.Map({
 		container: 'map', // container id
-		style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-		center: [5, 52], // starting position [lng, lat]
-		zoom: 5 // starting zoom
+		style: 'mapbox://styles/mapbox/streets-v11', // stylesheet locatie
+		center: [5, 52], // begin positie [lng, lat]
+		zoom: 5 // beginpositie zoom
 	});
 
 // Dit is de code voor de marker Geocoder. 
@@ -106,14 +106,14 @@ var geocoder = new MapboxGeocoder({
 
 /* EVENTUELE LANDINGSPLEKKEN */
 
-var landingsplek = [4.750680, 52.632359];
+var landingsplek = [4.7682744, 52.3105386];
 var alternatief = [-1.158109, 52.954784];
 var alternatiefTwee = [9.732010, 52.375893];
 
 
 // Maakt de popup met tekst. 
 var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-'Hier kunt u veilig landen!'
+'Hier kunt u veilig landen! Landingsbaan bevind zich op Schiphol'
 );
 
 // Maakt de popup met tekst voor de alternatieve landingsplek. 
