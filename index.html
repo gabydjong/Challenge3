@@ -22,18 +22,24 @@
 <body class="grid-container">
 
 	<header>
+
+    <article class="alert">
+      <span class="closebtn">&times;</span>  
+      <strong>Waarschuwing!</strong> Er heerst momenteel COVID-19 virus op de aarde. Denk goed na of u wel terug naar de aarde wil gaan!
+    </article>
+
 		<section class="logospace">
-         <figure class="logo"> <img class="logo" src="images/space-01.svg"  alt="Logo waarop SpaceX te lezen is."/> </figure>
-        </section>
+      <figure class="logo"> <img class="logo" src="images/space-01.svg"  alt="Logo waarop SpaceX te lezen is."/> </figure>
+    </section>
 
 
-      <form class="header-weer">
-        <fieldset>
-            <legend>Wij gaan weer terug naar huis!</legend>
-      		   <input type="text" id="cityName" id="city" class="zoekbalk" placeholder="Typ hier je plaatsnaam in waar je woont" />
-      			 <a href="#" id="button" onclick="getAPIdata()"> Laat info zien!</a>
-        </fieldset>
-      </form>
+    <form class="header-weer">
+      <fieldset>
+          <legend>Wij gaan weer terug naar huis!</legend>
+      		<input type="text" id="cityName" id="city" class="zoekbalk" placeholder="Typ hier je plaatsnaam in waar je woont" />
+      		<a href="#" id="button" onclick="getAPIdata()"> Laat info zien!</a>
+      </fieldset>
+    </form>
 	</header>
 
 
@@ -85,7 +91,7 @@
               <span class="eenheid">in meters</span>
             </div>
            </div>
-          <div data-placeholder="00.00 %" contenteditable="false" class="placeholder antwoordEenheid" id="zicht" ></div>
+          <div data-placeholder="00.00 m" contenteditable="false" class="placeholder antwoordEenheid" id="zicht" ></div>
         </div>
     </section>
 

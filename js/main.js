@@ -1,3 +1,18 @@
+// Functie om de waarschuwing weer te sluiten. 
+function alert(){
+  var close = document.getElementsByClassName("closebtn");
+  var i;
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function(){
+      var div = this.parentElement;
+      div.style.opacity = "0";
+      setTimeout(function(){ div.style.display = "none"; }, 600);
+    }
+  }
+}
+
+
 function getAPIdata() {
 
 	// Aanvraag
@@ -315,6 +330,7 @@ for(let i=0;i<numItemsToGenerate;i++){
 
 // Zorgt dat de functies worden getoont als scherm geladen is. 
 window.onload = function() {
+  alert();
   showMapBox();
   unsplashAPI();
 }
