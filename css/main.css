@@ -249,6 +249,7 @@ max-width: 200px;
 .gallery-image{
    border-radius: 9px;
 }
+
 .landingsfoto{
    grid-area:landingsfoto;
 }
@@ -270,7 +271,7 @@ footer{
 
 footer p{
     text-align: center;
-    margin: 20px;
+    margin: 20px 20px 20px 20px;
  }
 
 /*  ----------------- CSS GRIDS ------------------ */
