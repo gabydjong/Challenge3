@@ -158,6 +158,17 @@ legend{
     margin: 0px 10px 10px 10px;
 }
 
+#tempicon{
+  margin-top: -20px;
+}
+
+.card-icons{
+  width: 10%;
+  margin-left: 10px;
+  margin-right: 15px;
+  margin-top: 0px;
+}
+
 .title{
 	margin-right: 20px;
 }
@@ -167,28 +178,18 @@ legend{
 	margin-left: -10px;
 }
 
-.card-icons{
-	width: 10%;
-	margin-left: 10px;
-	margin-right: 15px;
-	margin-top: 0px;
-}
-
-
+/* tekst waar graden en meters in komen.*/
 .antwoordEenheid{
 	margin-top: 20px;
 }
 
-#tempicon{
-	margin-top: -20px;
-}
 /* voorlopige placeholder van antwoord eenheid */
 .placeholder:empty:not(:focus):before {
   content: attr(data-placeholder);
   color: lightgrey;
 }
 
-/*  ----------------- MAPS ------------------ */
+/*  ----------------- MAPBOX ------------------ */
 
 h4{
   margin: 10px 0px 20px 0px;
@@ -201,7 +202,7 @@ h4{
 
 .map-box {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   border-radius: 9px;
   height: 300px;
   margin: 0px 20px 20px 20px;
@@ -213,7 +214,7 @@ h4{
   border-radius: 8px;
 }
 
-/* marker landingsplek*/
+/* marker landingsplek opmaak */
 
 #marker {
 background-image: url('../images/landingplek-01.png');
@@ -296,7 +297,7 @@ header{
 
 /*  -----------------  1ste breekpunt------------------ */
 
-@media (min-width: 700px) {
+@media only screen and (min-width: 700px) {
   .grid-container {
     grid-template-columns: 1.5fr 1fr;
     grid-template-areas: 
@@ -307,13 +308,9 @@ header{
   }
   
 /* Button positie veranderd en zoekveld opmaak */
-.card-container{
-  margin-top: 0px;
-}
 
 .zoekbalk {
   width: 400px;
-
 }
 
 #button{
@@ -327,6 +324,11 @@ header{
   margin-top: 20px;
 }
 
+.card-container{
+  margin-top: 0px;
+}
+
+/* Foutmelding animatie button gebeurd nu op een andere plek */
 @keyframes shake {
   0% {
     margin-left: 290px;
@@ -351,17 +353,30 @@ h4, .titel{
 
 }
 
-@media (min-width: 900px){
+/*  -----------------  2e breekpunt------------------ */
+
+@media only screen and (min-width: 900px){
 /* Gallery foto mag niet groter worden dan onderstaande waarden op dit moment. */
 .gallery-image{
   height: 300px;
   width: 300px;
 }
+
+/* Mapbox wordt iets minder breed */
+#map {
+  width: 93%;
 }
 
-@media (min-width:1500px) {
-/* Elementen worden groter. */
+footer p{
+  font-size: 17px;
+}
+}
 
+/*  -----------------  3e breekpunt------------------ */
+
+@media only screen and (min-width:1500px) {
+
+/* Elementen worden groter. */
 .logo{
   height: 40px;
 }
@@ -380,8 +395,7 @@ legend{
   margin-left: 300px;
 }
 
-/* Cards worden groter */
-
+/* Blokken worden groter */
 .card{
   width: 240px;
   font-size: 20px;

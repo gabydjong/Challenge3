@@ -13,6 +13,7 @@ function alert(){
 }
 
 
+// Weathermap API
 function getAPIdata() {
 
 	// Aanvraag
@@ -45,6 +46,7 @@ function getAPIdata() {
 	});
 }
 
+// Toont informatie weerconditie in de blokken als tekst, bij het succesvol ophalen van de data.
 function onAPISucces(response) {
 	// Krijg het type weer in string formaat. 
 	var type = response.weather[0].description;
@@ -113,7 +115,7 @@ var alternatiefTwee = [9.732010, 52.375893];
 
 // Maakt de popup met tekst. 
 var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-'Hier kunt u veilig landen! Landingsbaan bevind zich op Schiphol'
+'Hier kunt u veilig landen! Landingsbaan bevindt zich op Schiphol.'
 );
 
 // Maakt de popup met tekst voor de alternatieve landingsplek. 
@@ -240,11 +242,11 @@ var openWeatherMapUrlApiKey = 'e096950819a2dd2441ca3cec5396aca4';
 
 map.on('load', function () {
   cities.forEach(function(city) {
-    // Usually you do not want to call an api multiple times, but in this case we have to
-    // because the openWeatherMap API does not allow multiple lat lon coords in one request.
+    // Normaal gesproken wil je niet een api meerdere keren aanspreken, maar in dit geval
+    // moeten we wel, want de openWeatherMap API accepteert niet meerdere lat lon coordinaten in 1 aanvraag.
     var request = openWeatherMapUrl + '?' + 'appid=' + openWeatherMapUrlApiKey + '&lon=' + city.coordinates[0] + '&lat=' + city.coordinates[1];
 
-    // Get current weather based on cities' coordinates
+    // Krijg huidige weer gebaseerd op de coordinaten van de steden.
     fetch(request)
       .then(function(response) {
         if(!response.ok) throw Error(response.statusText);
