@@ -98,8 +98,7 @@ legend{
   text-decoration: none;
   font-size: 12px;
   padding: 8px;
-  margin-left: 75px;
-  margin-top: 10px;
+  margin: 20px 0px 0px 75px;
   width: 100px;
   border-radius: 29px;
   position: absolute;
@@ -137,7 +136,7 @@ legend{
 
 .cards{
 	grid-area:cards;
-	margin-top: 20px;
+	margin-top: 40px;
 }
 
 .card-container{
@@ -272,7 +271,7 @@ header{
 }
 
 .grid-container {
-  margin: 0px 30px 30px 30px;
+  margin: 0px 30px 10px 30px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: 
@@ -308,7 +307,11 @@ header{
   margin-left: 290px;
   width: 110px;
   margin-top: -30px;
+}
 
+/* margin aanpassing, omdat op mobiel de button de margin niet accepteert.  */
+.cards{
+  margin-top: 20px;
 }
 
 @keyframes shake {
